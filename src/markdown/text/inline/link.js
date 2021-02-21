@@ -1,5 +1,5 @@
 import { List } from 'immutable'
-import { calculateTextSize } from '@/utils/'
+import { calculateTextSize } from '@/utils'
 
 export const link = ({
     token,
@@ -8,7 +8,7 @@ export const link = ({
     paragraphID,
     nodeID
 }) => {
-    const font = `${theme.font.size.normal}px ${theme.font.family.normal}`
+    const font = `${theme.fontSize}px ${theme.fontFamily}`
     const textWidth = calculateTextSize(token.text, { font }).width
     return List([
         {
@@ -17,9 +17,9 @@ export const link = ({
             textBaseline: 'top',
             font,
             fillText: token.text,
-            fillStyle: theme.link.fillStyle,
+            fillStyle: theme.linkFillStyle,
             width: textWidth,
-            height: theme.font.size.normal,
+            height: theme.fontSize,
             paragraphID,
             nodeID
         },

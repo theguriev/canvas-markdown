@@ -11,6 +11,6 @@ export const space = ({
         type: 'position',
         tag: 'space',
         x: newLineX,
-        y: position.y + (theme.font.size.normal * theme.font.lineHeight.normal) * index,
+        y: position.y + (theme.fontSize * theme.fontLineHeight) * index,
         nodeID
     }))

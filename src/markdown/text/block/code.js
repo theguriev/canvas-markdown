@@ -25,15 +25,15 @@ export const code = ({
 }) => {
     const parts = text({
         position: {
-            x: position.x + theme.font.padding.normal,
-            y: position.y + theme.font.padding.normal
+            x: position.x + theme.fontPadding,
+            y: position.y + theme.fontPadding
         },
         width,
         token: {
             ...token,
             raw: token.text
         },
-        newLineX: newLineX + theme.font.padding.normal,
+        newLineX: newLineX + theme.fontPadding,
         theme,
         nodeID
     })
@@ -42,10 +42,10 @@ export const code = ({
         ...position,
         type: 'rect',
         width,
-        height: (last.y - position.y) + theme.font.padding.normal * 3,
-        radius: theme.block.radius.normal,
-        strokeStyle: theme.code.strokeStyle,
-        fillStyle: theme.code.fillStyle,
+        height: (last.y - position.y) + theme.fontPadding * 3,
+        radius: theme.blockRadius,
+        strokeStyle: theme.codeStrokeStyle,
+        fillStyle: theme.codeFillStyle,
         nodeID
     }
     const spaces = { raw: getSpacesFromEnd(token.raw) }

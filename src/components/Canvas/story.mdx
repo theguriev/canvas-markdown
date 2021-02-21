@@ -1,0 +1,21 @@
+import { useRef, useState } from 'react'
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import CanvasComp from '.'
+
+<Meta
+    title="Canvas"
+    component={CanvasComp}
+    argTypes={{
+        text: {
+            control: {
+                type: 'text'
+            }
+        }
+    }}
+/>
+
+<Canvas>
+    <Story name="Default" args={{ text: '> Hello \n ___' }}>
+        {({ text }) => <CanvasComp text={text} />}
+    </Story>
+</Canvas>

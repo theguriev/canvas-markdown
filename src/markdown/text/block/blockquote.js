@@ -12,8 +12,8 @@ export const blockquote = ({
         nodeID,
         tokens: token.tokens,
         position: {
-            x: position.x + theme.blockquote.quoteWidth + theme.font.padding.normal * 2,
-            y: position.y + theme.font.padding.normal * 2
+            x: position.x + theme.blockquoteWidth + theme.fontPadding * 2,
+            y: position.y + theme.fontPadding * 2
         },
         width,
         theme,
@@ -26,12 +26,12 @@ export const blockquote = ({
     const quote = {
         type: 'rect',
         x: position.x,
-        y: position.y + theme.font.padding.normal,
-        width: theme.blockquote.quoteWidth,
+        y: position.y + theme.fontPadding,
+        width: theme.blockquoteWidth,
         height: last.y - position.y,
         radius: 0,
-        strokeStyle: theme.blockquote.strokeStyle,
-        fillStyle: theme.blockquote.fillStyle,
+        strokeStyle: theme.blockquoteStrokeStyle,
+        fillStyle: theme.blockquoteFillStyle,
         nodeID
     }
     return parts.unshift(quote)
@@ -39,6 +39,6 @@ export const blockquote = ({
             nodeID,
             type: 'position',
             x: position.x,
-            y: last.y + theme.font.padding.normal * 2
+            y: last.y + theme.fontPadding * 2
         })
 }

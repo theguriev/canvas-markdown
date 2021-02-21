@@ -1,5 +1,5 @@
 import { List } from 'immutable'
-import { calculateTextSize } from '@/utils/'
+import { calculateTextSize } from '@/utils'
 
 export const text = ({
     token,
@@ -9,7 +9,7 @@ export const text = ({
     nodeID
 }) => {
     const lines = List(token.raw.split(/(\n)/g))
-    const font = `${theme.font.size.normal}px ${theme.font.family.normal}`
+    const font = `${theme.fontSize}px ${theme.fontFamily}`
     const parts = lines.reduce(
         (acc, curr) => {
             const next = acc.last(position)
@@ -18,7 +18,7 @@ export const text = ({
                     tag: 'text',
                     type: 'position',
                     x: newLineX,
-                    y: next.y + theme.font.size.normal * theme.font.lineHeight.normal,
+                    y: next.y + theme.fontSize * theme.fontLineHeight,
                     nodeID
                 })
             }
@@ -30,7 +30,7 @@ export const text = ({
                     font,
                     fillText: curr,
                     width: calculateTextSize(curr, { font }).width,
-                    height: theme.font.size.normal,
+                    height: theme.fontSize,
                     nodeID
                 },
                 {

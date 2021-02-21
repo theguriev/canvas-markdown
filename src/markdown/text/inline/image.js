@@ -16,7 +16,7 @@ export const image = ({ token, position, theme, nodeID }) => {
         {
             type: 'position',
             x: position.x,
-            y: position.y + height + theme.font.size.normal * theme.font.lineHeight.normal,
+            y: position.y + height + theme.fontSize * theme.fontLineHeight,
             nodeID
         }
     ])

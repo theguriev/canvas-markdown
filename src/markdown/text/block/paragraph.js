@@ -36,7 +36,7 @@ export const paragraph = ({
         return parts.push({
             type: 'position',
             x: position.x,
-            y: last.y + theme.font.size.normal,
+            y: last.y + theme.fontSize,
             nodeID
         })
     }

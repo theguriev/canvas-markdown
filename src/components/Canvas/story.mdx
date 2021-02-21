@@ -1,21 +1,110 @@
 import { useRef, useState } from 'react'
 import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
-import CanvasComp from '.'
+import { parserText } from '@/markdown/text'
+import { render } from '@/markdown/render'
+import { argTypes, args } from './argTypes'
+import { DEVICE_PIXEL_RATIO } from '@/constants'
+import CanvasMD from '.'
+
+export const StoryBookWrapper = ({
+    text,
+    autoSize,
+    blockRadius,
+    codespanStrokeStyle,
+    codespanFillStyle,
+    linkFillStyle,
+    hrStrokeStyle,
+    blockquoteWidth,
+    blockquoteFillStyle,
+    blockquoteStrokeStyle,
+    codeFillStyle,
+    codeStrokeStyle,
+    listRadius,
+    listFillStyle,
+    listMarginLeft,
+    listMarginBottom,
+    fontFamily,
+    fontPadding,
+    fontSize,
+    fontLineHeight,
+    fontHeadingSize1,
+    fontHeadingSize2,
+    fontHeadingSize3,
+    fontHeadingSize4,
+    fontHeadingSize5,
+    fontHeadingSize6
+}) => {
+    const parts = parserText({
+        text,
+        width: 600,
+        theme: {
+            blockRadius,
+            codespanStrokeStyle,
+            codespanFillStyle,
+            linkFillStyle,
+            hrStrokeStyle,
+            blockquoteWidth,
+            blockquoteFillStyle,
+            blockquoteStrokeStyle,
+            codeFillStyle,
+            codeStrokeStyle,
+            listRadius,
+            listFillStyle,
+            listMarginLeft,
+            listMarginBottom,
+            fontFamily,
+            fontPadding,
+            fontSize,
+            fontLineHeight,
+            fontHeadingSize1,
+            fontHeadingSize2,
+            fontHeadingSize3,
+            fontHeadingSize4,
+            fontHeadingSize5,
+            fontHeadingSize6
+        }
+    })
+    console.log(parts)
+    const draw = ({ context, dom: cnvs }) => {
+        context.setTransform(1, 0, 0, 1, 0, 0)
+        context.clearRect(
+            0,
+            0,
+            cnvs.width,
+            cnvs.height
+        )
+        context.setTransform(
+            DEVICE_PIXEL_RATIO,
+            0,
+            0,
+            DEVICE_PIXEL_RATIO,
+            0,
+            0
+        )
+        render({
+            ctx: context,
+            parts,
+            cursorX: { current: 0 },
+            cursorY: { current: 0 },
+            hoveredNode: { current: 0 },
+            hoveredPath: { current: 0 },
+            hoveredPlusArea: { current: 0 },
+            isCtrlPressing: { current: false }
+        })
+    }
+    return (<CanvasMD draw={draw} />)
+}
 
 <Meta
     title="Canvas"
-    component={CanvasComp}
-    argTypes={{
-        text: {
-            control: {
-                type: 'text'
-            }
-        }
-    }}
+    component={StoryBookWrapper}
+    argTypes={argTypes}
 />
 
 <Canvas>
-    <Story name="Default" args={{ text: '> Hello \n ___' }}>
-        {({ text }) => <CanvasComp text={text} />}
+    <Story name="Default" args={args}>
+        {(props) => {
+            return (<StoryBookWrapper {...props} />)
+        }}
     </Story>
 </Canvas>

@@ -22,19 +22,19 @@ export const hr = ({
         type: 'line',
         identifyType: 'hr',
         x: position.x,
-        y: position.y + theme.font.padding.normal,
+        y: position.y + theme.fontPadding,
         x2: width,
         y2: 0,
         width: Math.abs(width - position.x),
-        height: Math.abs(position.y + theme.font.padding.normal),
+        height: Math.abs(position.y + theme.fontPadding),
         lineWidth: 1,
-        strokeStyle: theme.hr.strokeStyle,
+        strokeStyle: theme.hrStrokeStyle,
         nodeID
     },
     ...space({
         position: {
             x: position.x,
-            y: position.y + theme.font.padding.normal * 2
+            y: position.y + theme.fontPadding * 2
         },
         newLineX,
         token,

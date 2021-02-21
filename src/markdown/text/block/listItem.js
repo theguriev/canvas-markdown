@@ -5,38 +5,50 @@ import {
     identity,
     conforms
 } from 'lodash-es'
-import { calculateTextSize } from '@/utils/'
+import { calculateTextSize } from '@/utils'
 
 const textTypeToParagraph = cond([
     [conforms({ type: t => t === 'text' }), el => ({ ...el, type: 'paragraph' })],
     [stubTrue, identity]
 ])
 
-const counter = ({ x, y }, { list, font: fontOption }, { ordered, start }, index, nodeID) => {
+const counter = (
+    { x, y },
+    {
+        listMarginLeft,
+        listRadius,
+        listFillStyle,
+        fontSize,
+        fontFamily
+    },
+    { ordered, start },
+    index,
+    nodeID
+) => {
     if (ordered) {
         const number = (start || 0) + index
-        const font = `${fontOption.size.normal}px ${fontOption.family.normal}`
+        const font = `${fontSize}px ${fontFamily}`
         return {
             type: 'text',
             textBaseline: 'top',
             font,
-            x: x + list.marginLeft - list.radius * 2,
+            x: x + listMarginLeft - listRadius * 2,
             y,
             width: calculateTextSize(`${number}.`, { font }).width,
-            height: fontOption.size.normal,
+            height: fontSize,
             fillText: `${number}.`,
             nodeID
         }
     }
     return {
         type: 'ellipse',
-        x: x + list.marginLeft,
-        y: y + fontOption.size.normal / 2,
-        radius: list.radius,
+        x: x + listMarginLeft,
+        y: y + fontSize / 2,
+        radius: listRadius,
         startAngle: 0,
         endAngle: 2 * Math.PI,
         anticlockwise: true,
-        fillStyle: list.fillStyle,
+        fillStyle: listFillStyle,
         nodeID
     }
 }
@@ -55,7 +67,7 @@ export const listItem = ({
     (acc, curr) => {
         const prepared = textTypeToParagraph(curr)
         const prev = acc.last({
-            x: position.x + theme.list.radius * 6,
+            x: position.x + theme.listRadius * 6,
             y: position.y
         })
         const tmpAcc = acc.concat(
@@ -63,7 +75,7 @@ export const listItem = ({
                 tokens: [prepared],
                 position: {
                     ...prev,
-                    x: prev.x + theme.list.marginLeft
+                    x: prev.x + theme.listMarginLeft
                 },
                 width,
                 theme,
@@ -76,7 +88,7 @@ export const listItem = ({
                 type: 'position',
                 tag: 'listItem',
                 x: newLineX,
-                y: tmpAcc.last().y + theme.list.marginBottom,
+                y: tmpAcc.last().y + theme.listMarginBottom,
                 nodeID
             })
         }

@@ -1,0 +1,24 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+
+<Meta title="Hooks/useZoom"/>
+
+# useZoom
+
+Utility hook to zoom the canvas
+
+## Usage
+
+```js
+useZoom({
+    dom,
+    startScale, // start scale number
+    startX = 0, // start X
+    startY = 0, // start Y
+    maxZoom = 50, // Max zoom level
+    zoomStep = 0.2, // Zooming step
+    minZoom = 0.25 // Min zoom level
+})
+```
+
+Hook in action ( spin the wheel ) [Canvas](/?path=/docs/canvas--showcase)

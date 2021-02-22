@@ -14,6 +14,9 @@ const Canvas = forwardRef(({
     const [dom, setDom] = useState(null)
     const setReference = useCallback(element => {
         setDom(element)
+        if (!ref) {
+            return
+        }
         if (ref.current !== undefined) {
             // eslint-disable-next-line no-param-reassign
             ref.current = element

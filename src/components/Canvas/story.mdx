@@ -130,6 +130,23 @@ export const StoryBookWrapper = ({
 <Canvas>
     <Story name="Default" args={args}>
         {(props) => {
+            const draw = ({ context }) => {
+                context.beginPath()
+                context.arc(75, 75, 50, 0, 2 * Math.PI)
+                context.stroke()
+            }
+            return (<CanvasMD draw={draw} />)
+        }}
+    </Story>
+</Canvas>
+
+## Features
+* Spin the wheel to zoom in/zoom out.
+* Press space and move your mouse to panning.
+
+<Canvas>
+    <Story name="Showcase" args={args}>
+        {(props) => {
             return (<StoryBookWrapper {...props} />)
         }}
     </Story>

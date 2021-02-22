@@ -1,0 +1,26 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+
+<Meta title="Hooks/usePan"/>
+
+# usePan
+
+Used to move drawings around the canvas
+
+## Usage
+
+```js
+const {
+    isMouseDown,
+    isSpacePressing,
+    offsetX,
+    offsetY,
+    dom
+} = usePan({
+    dom, // canvas DOM element
+    offsetX: { current: 0 }, // start offsetX
+    offsetY: { current: 0 }, // start offsetY
+})
+```
+
+Hook in action ( just press spac + mouse down + move ) [Canvas](/?path=/docs/canvas--showcase)

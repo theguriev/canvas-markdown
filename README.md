@@ -1,6 +1,6 @@
 # Canvas-Markdown
 
-![canvas mardown](./md.gif)
+![canvas mardown](https://github.com/theguriev/canvas-markdown/raw/master/md.gif)
 
 * [Introduction](https://theguriev.github.io/canvas-markdown/?path=/story/introduction--page)
 * [Demo showcase](https://theguriev.github.io/canvas-markdown/?path=/docs/canvas--showcase)

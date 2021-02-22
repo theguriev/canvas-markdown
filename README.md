@@ -1,7 +1,7 @@
 # Canvas-Markdown
 
 <figure class="video_container">
-  <video controls="false" allowfullscreen="false" loop="true" autoplay="true" src="./media/md.mov"></video>
+  <video controls="false" allowfullscreen="false" loop="true" autoplay="true" src="media/md.mov"></video>
 </figure>
 
 

@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import md from '@/assets/md.jpg'
+
+<Meta title="Introduction" />
+
+# Canvas markdown
+
+<video
+    src={md}
+    width="550"
+    autoPlay
+    onClick={({target: video}) => video.paused ? video.play() : video.pause()}
+/>
+
+
+It's just a simple library to easily work with canvas and markdown in react.
+
+**Key feature:**
+* Markdow to Canvas.
+* Zoom.
+* Pan.

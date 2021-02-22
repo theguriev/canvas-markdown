@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
 import { parserText } from '@/markdown/text'
 import { render } from '@/markdown/render'
 import { argTypes, args } from './argTypes'
 import { DEVICE_PIXEL_RATIO } from '@/constants'
+import { useZoom, usePosition, usePan } from '@/hooks'
 import CanvasMD from '.'
 
 export const StoryBookWrapper = ({
@@ -34,6 +35,7 @@ export const StoryBookWrapper = ({
     fontHeadingSize5,
     fontHeadingSize6
 }) => {
+    const [dom, setDom] = useState(null)
     const parts = parserText({
         text,
         width: 600,
@@ -64,7 +66,30 @@ export const StoryBookWrapper = ({
             fontHeadingSize6
         }
     })
-    console.log(parts)
+    const {
+        scale,
+        offsetX,
+        offsetY
+    } = useZoom({ startScale: 1, dom })
+    const {
+        x,
+        y,
+        hoverX,
+        hoverY
+    } = usePosition({ dom, offsetX, offsetY })
+    const { isSpacePressing, isMouseDown } = usePan({ dom, offsetX, offsetY })
+    const cursor = useMemo(
+        () => {
+            if (isSpacePressing && isMouseDown) {
+                return 'grabbing'
+            }
+            if (isSpacePressing) {
+                return 'grab'
+            }
+            return 'default'
+        },
+        [isSpacePressing, isMouseDown]
+    )
     const draw = ({ context, dom: cnvs }) => {
         context.setTransform(1, 0, 0, 1, 0, 0)
         context.clearRect(
@@ -78,9 +103,10 @@ export const StoryBookWrapper = ({
             0,
             0,
             DEVICE_PIXEL_RATIO,
-            0,
-            0
+            offsetX.current,
+            offsetY.current
         )
+        context.scale(scale.current, scale.current)
         render({
             ctx: context,
             parts,
@@ -92,7 +118,7 @@ export const StoryBookWrapper = ({
             isCtrlPressing: { current: false }
         })
     }
-    return (<CanvasMD draw={draw} />)
+    return (<CanvasMD draw={draw} ref={setDom} cursor={cursor} />)
 }
 
 <Meta
@@ -103,6 +129,23 @@ export const StoryBookWrapper = ({
 
 <Canvas>
     <Story name="Default" args={args}>
+        {(props) => {
+            const draw = ({ context }) => {
+                context.beginPath()
+                context.arc(75, 75, 50, 0, 2 * Math.PI)
+                context.stroke()
+            }
+            return (<CanvasMD draw={draw} />)
+        }}
+    </Story>
+</Canvas>
+
+## Features
+* Spin the wheel to zoom in/zoom out.
+* Press space and move your mouse to panning.
+
+<Canvas>
+    <Story name="Showcase" args={args}>
         {(props) => {
             return (<StoryBookWrapper {...props} />)
         }}

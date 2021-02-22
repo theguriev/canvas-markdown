@@ -1,0 +1,21 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+
+<Meta title="Hooks/useCanvas"/>
+
+# useCanvas
+
+Utility hook to draw something into canvas
+
+## Usage
+
+```js
+useCanvas({
+    dom,
+    before: () => { /* Will be launched before starting */ },
+    draw: ({ context, dom, counter }) => { /* Will be launched on each frame */ },
+    after: () => { /* Will be launched after stop */ }
+})
+```
+
+Hook in action [Canvas](/?path=/docs/canvas--showcase)

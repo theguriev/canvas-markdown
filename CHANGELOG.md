@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/theguriev/canvas-markdown/compare/v1.1.0...v1.1.1) (2021-02-22)
+
+
+### Bug Fixes
+
+* **Gif src:** change link address ([e357f0e](https://github.com/theguriev/canvas-markdown/commit/e357f0e08d4478c1090b869d4240b4688e0a39d9))
+
 ## 1.1.0 (2021-02-22)
 
 

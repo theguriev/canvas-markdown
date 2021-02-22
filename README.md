@@ -1,5 +1,7 @@
 # Canvas-Markdown
 
+![canvas mardown](./md.gif)
+
 * [Introduction](https://theguriev.github.io/canvas-markdown/?path=/story/introduction--page)
 * [Demo showcase](https://theguriev.github.io/canvas-markdown/?path=/docs/canvas--showcase)
 * [Demo simple](https://theguriev.github.io/canvas-markdown/?path=/docs/canvas--default-story)

@@ -1,5 +1,5 @@
 {
-  "name": "mind-maps-components",
+  "name": "canvas-markdown",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -13,9 +13,9 @@
   "exports": {
     "./scenes/": "./dist/scenes/"
   },
-  "keywords": [],
+  "keywords": ["canvas", "markdown", "draw", "react", "hooks"],
   "author": "Eugen Guriev",
-  "license": "ISC",
+  "license": "MIT",
   "babel": {
     "plugins": [
       [
@@ -68,7 +68,7 @@
     "immutable": "^4.0.0-rc.12",
     "lguid": "^1.0.1",
     "lodash-es": "^4.17.15",
-    "marked": "^1.2.0",
+    "marked": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

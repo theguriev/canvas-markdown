@@ -114,21 +114,6 @@ Like links, Images also have a footnote style syntax
 With a reference later in the document defining the URL location:
 
 [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- 19^th^
-- H~2~O
 `
 
 export default defaultText

@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o ./docs",
     "build": "node scripts/build.js",
     "lint": "npx eslint --ignore-path .gitignore .",
     "release": "standard-version"

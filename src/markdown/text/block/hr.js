@@ -1,4 +1,3 @@
-import { el } from 'date-fns/locale'
 import { List } from 'immutable'
 import { cond, stubTrue, identity } from 'lodash'
 import { space } from './space'

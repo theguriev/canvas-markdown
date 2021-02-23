@@ -18,14 +18,16 @@ export const heading = ({
         6: theme.fontHeadingSize6
     }
     const font = `${sizes[token.depth]}px ${theme.fontFamily}`
+    const textWidth = calculateTextSize(token.text, { font }).width
     return List([
         {
-            ...position,
+            x: position.x,
+            y: position.y,
             type: 'text',
             textBaseline: 'top',
             font,
             fillText: token.text,
-            width: calculateTextSize(token.text, { font }).width,
+            width: textWidth,
             nodeID
         },
         ...space({

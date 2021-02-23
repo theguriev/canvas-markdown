@@ -1,4 +1,16 @@
 const defaultText = `
+On the other hand, we denounce with righteous indignation
+hello
+one more
+
+shuffled **bold**
+**This is bold text** *This is italic text* _This is italic text_ ~~Strikethrough~~ text
+1
+2
+3
+4
+5
+
 # h1 Heading 8-)
 ## h2 Heading
 ### h3 Heading

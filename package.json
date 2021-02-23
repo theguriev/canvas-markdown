@@ -80,5 +80,9 @@
     "react-dom": "^16.13.1",
     "react-use": "^17.1.1",
     "styled-components": "^5.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theguriev/canvas-markdown"
   }
 }

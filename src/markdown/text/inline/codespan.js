@@ -1,7 +1,12 @@
 import { List } from 'immutable'
 import { calculateTextSize } from '@/utils'
 
-export const codespan = ({ token, position, theme, nodeID }) => List([
+export const codespan = ({
+    token,
+    position,
+    theme,
+    nodeID
+}) => List([
     {
         type: 'rect',
         x: position.x,

@@ -10,6 +10,7 @@ import CanvasMD from '.'
 export const StoryBookWrapper = ({
     text,
     autoSize,
+    isAlignRight,
     blockRadius,
     codespanStrokeStyle,
     codespanFillStyle,
@@ -39,6 +40,7 @@ export const StoryBookWrapper = ({
     const parts = parserText({
         text,
         width: 600,
+        isAlignRight,
         theme: {
             blockRadius,
             codespanStrokeStyle,

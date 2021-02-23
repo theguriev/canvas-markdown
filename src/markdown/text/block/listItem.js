@@ -45,6 +45,7 @@ const counter = (
         x: x + listMarginLeft,
         y: y + fontSize / 2,
         radius: listRadius,
+        width: listRadius * 2,
         startAngle: 0,
         endAngle: 2 * Math.PI,
         anticlockwise: true,
@@ -62,7 +63,9 @@ export const listItem = ({
     index,
     parser,
     parent,
-    nodeID
+    nodeID,
+    isAlignRight,
+    ...rest
 }) => token.tokens.reduce(
     (acc, curr) => {
         const prepared = textTypeToParagraph(curr)
@@ -72,6 +75,7 @@ export const listItem = ({
         })
         const tmpAcc = acc.concat(
             parser({
+                ...rest,
                 tokens: [prepared],
                 position: {
                     ...prev,
@@ -80,7 +84,8 @@ export const listItem = ({
                 width,
                 theme,
                 parser,
-                nodeID
+                nodeID,
+                isAlignRight
             })
         )
         if (tmpAcc.last().tag !== 'listItem') {

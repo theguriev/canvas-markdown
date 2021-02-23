@@ -8,7 +8,9 @@ export const paragraph = ({
     newLineX,
     theme,
     parser,
-    nodeID
+    nodeID,
+    isAlignRight,
+    ...rest
 }) => {
     const parts = token.tokens.reduce(
         (acc, curr) => {
@@ -23,7 +25,9 @@ export const paragraph = ({
                         width,
                         theme,
                         parser,
-                        nodeID
+                        nodeID,
+                        isAlignRight,
+                        ...rest
                     })
                 )
             }

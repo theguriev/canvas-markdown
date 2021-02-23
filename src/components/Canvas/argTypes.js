@@ -11,6 +11,11 @@ export const argTypes = {
             type: 'boolean'
         }
     },
+    isAlignRight: {
+        control: {
+            type: 'boolean'
+        }
+    },
     before: { table: { disable: true } },
     after: { table: { disable: true } },
     draw: { table: { disable: true } },

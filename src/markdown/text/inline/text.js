@@ -1,12 +1,21 @@
 import { List } from 'immutable'
 import { calculateTextSize } from '@/utils'
 
+const changeSpacePosition = text => {
+    const found = text.match(/\s+$/g)
+    if (found === null) {
+        return text
+    }
+    return ''.padStart(found[0].length) + text
+}
+
 export const text = ({
     token,
     position,
     newLineX,
     theme,
-    nodeID
+    nodeID,
+    isAlignRight
 }) => {
     const lines = List(token.raw.split(/(\n)/g))
     const font = `${theme.fontSize}px ${theme.fontFamily}`
@@ -22,17 +31,21 @@ export const text = ({
                     nodeID
                 })
             }
+            const textWidth = calculateTextSize(curr, { font }).width
+            const fillText = isAlignRight ? changeSpacePosition(curr) : curr
+            const el = {
+                x: next.x,
+                y: next.y,
+                type: 'text',
+                textBaseline: 'top',
+                font,
+                fillText,
+                width: textWidth,
+                height: theme.fontSize,
+                nodeID
+            }
             return acc.concat([
-                {
-                    ...next,
-                    type: 'text',
-                    textBaseline: 'top',
-                    font,
-                    fillText: curr,
-                    width: calculateTextSize(curr, { font }).width,
-                    height: theme.fontSize,
-                    nodeID
-                },
+                el,
                 {
                     ...next,
                     type: 'position',

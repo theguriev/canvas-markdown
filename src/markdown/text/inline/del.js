@@ -1,12 +1,18 @@
 import { List } from 'immutable'
 import { calculateTextSize } from '@/utils'
 
-export const del = ({ token, position, theme, nodeID }) => {
+export const del = ({
+    token,
+    position,
+    theme,
+    nodeID
+}) => {
     const font = `${theme.fontSize}px ${theme.fontFamily}`
     const strikeWidth = calculateTextSize(token.text, { font }).width
     return List([
         {
-            ...position,
+            x: position.x,
+            y: position.y,
             type: 'text',
             textBaseline: 'top',
             font,

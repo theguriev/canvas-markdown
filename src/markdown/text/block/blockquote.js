@@ -6,13 +6,17 @@ export const blockquote = ({
     token,
     theme,
     parser,
-    nodeID
+    nodeID,
+    isAlignRight,
+    ...rest
 }) => {
+    const offsetX = theme.blockquoteWidth + theme.fontPadding * 2
     const parts = parser({
+        ...rest,
         nodeID,
         tokens: token.tokens,
         position: {
-            x: position.x + theme.blockquoteWidth + theme.fontPadding * 2,
+            x: position.x + offsetX,
             y: position.y + theme.fontPadding * 2
         },
         width,

@@ -12,7 +12,8 @@ export const link = ({
     const textWidth = calculateTextSize(token.text, { font }).width
     return List([
         {
-            ...position,
+            x: position.x,
+            y: position.y,
             type: 'text',
             textBaseline: 'top',
             font,

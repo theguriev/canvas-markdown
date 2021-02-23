@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/theguriev/canvas-markdown/compare/v1.1.1...v1.2.0) (2021-02-23)
+
+
+### Features
+
+* **Align Right:** add feature resolve [#12](https://github.com/theguriev/canvas-markdown/issues/12) ([88efad2](https://github.com/theguriev/canvas-markdown/commit/88efad2de02d9a31d51541e6d5c05743408e5511))
+
 ### [1.1.1](https://github.com/theguriev/canvas-markdown/compare/v1.1.0...v1.1.1) (2021-02-22)
 
 

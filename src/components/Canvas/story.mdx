@@ -120,7 +120,10 @@ export const StoryBookWrapper = ({
             isCtrlPressing: { current: false }
         })
     }
-    return (<CanvasMD draw={draw} ref={setDom} cursor={cursor} />)
+    const onKeyDown = event => {
+        console.log('test key down', event)
+    }
+    return (<CanvasMD draw={draw} ref={setDom} cursor={cursor} onKeyDown={onKeyDown} />)
 }
 
 <Meta

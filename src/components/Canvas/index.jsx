@@ -10,7 +10,8 @@ export const Canvas = forwardRef(({
     before,
     after,
     draw,
-    cursor
+    cursor,
+    ...rest
 }, ref) => {
     const [dom, setDom] = useState(null)
     const setReference = useCallback(element => {
@@ -50,7 +51,12 @@ export const Canvas = forwardRef(({
     useEvent(autoSize && 'resize', resize)
 
     return (
-        <Ui.canvas ref={setReference} cursor={cursor} />
+        <Ui.canvas
+            tabIndex={-1}
+            ref={setReference}
+            cursor={cursor}
+            {...rest}
+        />
     )
 })
 

@@ -47,7 +47,6 @@ export const parserText = ({
     isAlignRight = false,
     ...rest
 }) => {
-    console.log('lexer', lexer(text))
     const parts = parser({
         tokens: lexer(text),
         position,
@@ -58,11 +57,8 @@ export const parserText = ({
         .filter(el => el.type !== 'position')
 
     if (isAlignRight) {
-        console.log(parts
-            .map(applyRightToLeft(position.x, position.x + width)).toJS())
         return parts
             .map(applyRightToLeft(position.x, position.x + width))
     }
-    console.log('parts', parts.toJS())
     return parts
 }

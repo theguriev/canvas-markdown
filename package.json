@@ -10,9 +10,6 @@
     "lint": "npx eslint --ignore-path .gitignore .",
     "release": "standard-version"
   },
-  "exports": {
-    "./scenes/": "./dist/scenes/"
-  },
   "keywords": [
     "canvas",
     "markdown",

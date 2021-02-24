@@ -1,15 +1,16 @@
 import React, { useState, useCallback, forwardRef } from 'react'
+import PropTypes from 'prop-types'
 import Ui from '@you-eye/styled'
 import { isFunction } from 'lodash-es'
 import { useEvent } from 'react-use'
 import { useCanvas } from '@/hooks'
 
-const Canvas = forwardRef(({
-    autoSize = true,
-    before = () => {},
-    after = () => {},
-    draw = () => {},
-    cursor = 'default'
+export const Canvas = forwardRef(({
+    autoSize,
+    before,
+    after,
+    draw,
+    cursor
 }, ref) => {
     const [dom, setDom] = useState(null)
     const setReference = useCallback(element => {
@@ -52,5 +53,21 @@ const Canvas = forwardRef(({
         <Ui.canvas ref={setReference} cursor={cursor} />
     )
 })
+
+Canvas.defaultProps = {
+    autoSize: true,
+    before: () => {},
+    after: () => {},
+    draw: () => {},
+    cursor: 'default'
+}
+
+Canvas.propTypes = {
+    autoSize: PropTypes.bool,
+    before: PropTypes.func,
+    after: PropTypes.func,
+    draw: PropTypes.func,
+    cursor: PropTypes.string
+}
 
 export default Canvas

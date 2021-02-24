@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/theguriev/canvas-markdown/compare/v1.3.0...v1.4.0) (2021-02-24)
+
+
+### Features
+
+* **Forward Events:** add forward events to Canvas component ([7a1933b](https://github.com/theguriev/canvas-markdown/commit/7a1933b76def9e5bd504fd9443cbcbe227ba941b))
+
 ## [1.3.0](https://github.com/theguriev/canvas-markdown/compare/v1.2.0...v1.3.0) (2021-02-24)
 
 

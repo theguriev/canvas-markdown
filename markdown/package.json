@@ -1,0 +1,5 @@
+{
+    "name": "canvas-markdown/markdown",
+    "private": true,
+    "main": "../dist/markdown"
+}
